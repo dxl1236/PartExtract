@@ -1,0 +1,2 @@
+# PartExtract
+通过NX装配part文件提取装配结构树中所有part文件到指定目录并打包
