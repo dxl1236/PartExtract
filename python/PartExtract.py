@@ -258,8 +258,8 @@ def getparts(checkpart, folder=""):
 def addreg(path):
     try:
         key = winreg.OpenKey(winreg.HKEY_CLASSES_ROOT, "*\\shell\\")
-        winreg.SetValue(key, "ExtractPart", winreg.REG_SZ, "NX装配树提取打包")
-        newKey = winreg.OpenKey(winreg.HKEY_CLASSES_ROOT, "*\\shell\\ExtractPart")
+        winreg.SetValue(key, "PartExtract-py", winreg.REG_SZ, "NX装配树提取打包")
+        newKey = winreg.OpenKey(winreg.HKEY_CLASSES_ROOT, "*\\shell\\PartExtract-py")
         value = path + " -p \"%1\""
         winreg.SetValue(newKey, "command", winreg.REG_SZ, value)
     except:
@@ -270,10 +270,10 @@ def addreg(path):
 
 def delreg():
     try:
-        key = winreg.OpenKey(winreg.HKEY_CLASSES_ROOT, "*\\shell\\ExtractPart")
+        key = winreg.OpenKey(winreg.HKEY_CLASSES_ROOT, "*\\shell\\PartExtract-py")
         winreg.DeleteKey(key, "command")
         key = winreg.OpenKey(winreg.HKEY_CLASSES_ROOT, "*\\shell")
-        winreg.DeleteKey(key, "ExtractPart")
+        winreg.DeleteKey(key, "PartExtract-py")
     except:
         wx.MessageBox(u'右键菜单不存在', u'提示', wx.OK | wx.ICON_ERROR)
     else:
