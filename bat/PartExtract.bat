@@ -1,34 +1,33 @@
 @echo off
 color 3E
-title NX×°ÅäÌáÈ¡´ò°ü
+title NXè£…é…æ ‘æå–æ‰“åŒ…
 cd /d "%~dp0"
-if NOT EXIST "%~dp07z.exe" echo.¹¤¾ß²»ÍêÕû£¬Ã»ÕÒµ½7z.exe£¡&&pause>nul&&exit 
-if NOT EXIST "%~dp0ugpc.exe" echo.¹¤¾ß²»ÍêÕû£¬Ã»ÕÒµ½ugpc.exe£¡&&pause>nul&&exit 
-echo.Ñ¡ÔñµÄÎÄ¼þÎª£º"%~nx1"
+if NOT EXIST "%~dp07z.exe" echo.å·¥å…·ä¸å®Œæ•´ï¼Œæ²¡æ‰¾åˆ°7z.exeï¼&&pause>nul&&exit 
+if NOT EXIST "%~dp0ugpc.exe" echo.å·¥å…·ä¸å®Œæ•´ï¼Œæ²¡æ‰¾åˆ°ugpc.exeï¼&&pause>nul&&exit 
+echo.é€‰æ‹©çš„æ–‡ä»¶ä¸ºï¼š"%~nx1"
 ugpc %1 1>nul 2>nul
 if %errorlevel%==0 (
 goto asm
 ) else if %errorlevel%==4 (
-echo.Ñ¡ÔñµÄ"%~nx1"ÎÄ¼þ²»ÊÇ×°ÅäÎÄ¼þ!
-set "msgvar=Ñ¡ÔñµÄ%~nx1ÎÄ¼þ²»ÊÇ×°ÅäÎÄ¼þ!"
+echo.é€‰æ‹©çš„"%~nx1"æ–‡ä»¶ä¸æ˜¯è£…é…æ–‡ä»¶!
+set "msgvar=é€‰æ‹©çš„%~nx1æ–‡ä»¶ä¸æ˜¯è£…é…æ–‡ä»¶!"
 goto msg
 ) else if %errorlevel%==5 (
-echo.Ñ¡ÔñµÄprtÎÄ¼þ°æ±¾¹ý¸ß!
-set "msgvar=Ñ¡ÔñµÄ%~nx1ÎÄ¼þ°æ±¾¹ý¸ß!"
+echo.é€‰æ‹©çš„prtæ–‡ä»¶ç‰ˆæœ¬è¿‡é«˜!
+set "msgvar=é€‰æ‹©çš„%~nx1æ–‡ä»¶ç‰ˆæœ¬è¿‡é«˜!"
 goto msg
 ) else if %errorlevel%==9009 (
-echo.¹¤¾ß°²×°ÓÐÎÊÌâ,ÇëÐÞ¸´!
-set "msgvar=¹¤¾ß°²×°ÓÐÎÊÌâ,ÇëÐÞ¸´!"
+echo.å·¥å…·å®‰è£…æœ‰é—®é¢˜,è¯·ä¿®å¤!
+set "msgvar=å·¥å…·å®‰è£…æœ‰é—®é¢˜,è¯·ä¿®å¤!"
 goto msg
-) else ( echo.Ñ¡ÔñµÄ"%~nx1"ÎÄ¼þ²»ÊÇNX prtÎÄ¼þ!
-set "msgvar=Ñ¡ÔñµÄ%~nx1ÎÄ¼þ²»ÊÇNX prtÎÄ¼þ!"
+) else ( echo.é€‰æ‹©çš„"%~nx1"æ–‡ä»¶ä¸æ˜¯NX prtæ–‡ä»¶!
+set "msgvar=é€‰æ‹©çš„%~nx1æ–‡ä»¶ä¸æ˜¯NX prtæ–‡ä»¶!"
 goto msg )
 exit
 :asm
 Setlocal enabledelayedexpansion
 set count1=0
 set count2=0
-set count3=0
 set var=%~dp1
 :loop
 for /f "delims=\  tokens=1*" %%i in ("%var%") do (
@@ -39,20 +38,20 @@ if defined var ( goto loop )
 echo.%file%|find ":">nul
 if %errorlevel%==0 (
 set "uppath=%file%"
-set "file=%~n1-%date:~0,4%%date:~5,2%%date:~8,2%-%time:~0,2%%time:~3,2%%time:~6,2%%time:~9,2%"
+set "file=%~n1-%date:~0,4%%date:~5,2%%date:~8,2%%time:~0,2%%time:~3,2%%time:~6,2%"
 ) else (
-set "file=%file%-%date:~0,4%%date:~5,2%%date:~8,2%-%time:~0,2%%time:~3,2%%time:~6,2%%time:~9,2%"
+set "file=%file%-%date:~0,4%%date:~5,2%%date:~8,2%%time:~0,2%%time:~3,2%%time:~6,2%"
 set "pack=%~dp1"
 set "pack=!pack:~0,-1!.ack"
 for /f "delims=" %%i in ("!pack!") do (
 set uppath=%%~dpi
 ))
 
-echo ÐÂ½¨Ä¿Â¼£º"%uppath%\%file%\"
+echo æ–°å»ºç›®å½•ï¼š"%uppath%\%file%\"
 md "%uppath%\%file%\"
-echo.ÕýÔÚ¸´ÖÆÎÄ¼þ...
+echo.æ­£åœ¨å¤åˆ¶æ–‡ä»¶...
 echo.
-echo.©³©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©·
+echo.â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”“
 echo.
 ugpc %1 1>nul 2>error.txt
 echo.>list.txt
@@ -64,33 +63,28 @@ echo.!vara!>>list.txt
 ugpc %1 1>>list.txt 2>nul
 for /F "delims=" %%i in (list.txt) do (
 set /a count2+=1
-if EXIST "%~dp1%%~nxi" ( 
-xcopy /h /y /q "%~dp1%%~nxi" "%uppath%\%file%\" >nul
-set /a count1+=1
-) else if EXIST "%%i" ( 
+if EXIST "%%i" ( 
 xcopy /h /y /q "%%i" "%uppath%\%file%\" >nul
 set /a count1+=1
-set /a count3+=1
-echo.  µ±Ç°Ä¿Â¼È±Ê§"%%~nxi"£¬ÔÚÉÏ´Î±£´æÄ¿Â¼"%%~dpi"ÖÐÕÒµ½£¬ÇëºËÊµ°æ±¾.
-) else ( echo. "%%~nxi"Î´ÕÒµ½£¬Çë¼ì²é£¡£¡ )
+) else ( echo. "%%~nxi"æœªæ‰¾åˆ°ï¼Œè¯·æ£€æŸ¥ï¼ï¼ )
 )
 del /f list.txt
 del /f error.txt
 set /a count=%count2%-%count1%
 echo.
-echo.    ¹²%count2%¸öÎÄ¼þ,¸´ÖÆ%count1%¸öÎÄ¼þ,È±ÉÙ%count%¸öÎÄ¼þ¡£
+echo.    å…±%count2%ä¸ªæ–‡ä»¶,å¤åˆ¶%count1%ä¸ªæ–‡ä»¶,ç¼ºå°‘%count%ä¸ªæ–‡ä»¶ã€‚
 echo.
-echo.©»©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¿
+echo.â”—â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”›
 echo.
 if %count%==0 (
 echo.
-echo.Ä¿Â¼ÎÄ¼þÍêÕû,Èç¹ûÐèÒª´ò°üÎÄ¼þÇë°´ÈÎÒâ¼ü¼ÌÐø£¬·ñÔò¹Ø±Õ³ÌÐò£¡&&pause>nul
+echo.ç›®å½•æ–‡ä»¶å®Œæ•´,å¦‚æžœéœ€è¦æ‰“åŒ…æ–‡ä»¶è¯·æŒ‰ä»»æ„é”®ç»§ç»­ï¼Œå¦åˆ™å…³é—­ç¨‹åºï¼&&pause>nul
 goto upack
 ) else (
 echo.
-echo.###µ±Ç°Ä¿Â¼ÎÄ¼þ²»ÍêÕû£¬È±ÉÙ%count%¸öÎÄ¼þ£¬Çë¼ì²éºóÖØÐÂÌáÈ¡###
+echo.###å½“å‰ç›®å½•æ–‡ä»¶ä¸å®Œæ•´ï¼Œç¼ºå°‘%count%ä¸ªæ–‡ä»¶ï¼Œè¯·æ£€æŸ¥åŽé‡æ–°æå–###
 echo.
-echo.Èç¹ûÐèÒªÇ¿ÖÆ´ò°üÎÄ¼þÇë°´ÈÎÒâ¼ü¼ÌÐø£¬·ñÔò¹Ø±Õ³ÌÐò£¡&&pause>nul
+echo.å¦‚æžœéœ€è¦å¼ºåˆ¶æ‰“åŒ…æ–‡ä»¶è¯·æŒ‰ä»»æ„é”®ç»§ç»­ï¼Œå¦åˆ™å…³é—­ç¨‹åºï¼&&pause>nul
 goto upack
 )
 exit
@@ -98,22 +92,22 @@ exit
 :upack
 cls
 echo.
-echo.ÕýÔÚ´ò°üÎÄ¼þ...
+echo.æ­£åœ¨æ‰“åŒ…æ–‡ä»¶...
 if EXIST "%uppath%\%file%.7z" ( del /f  /q "%uppath%\%file%.7z" )
 7z.exe  a  "%uppath%\%file%.7z"  "%uppath%\%file%\" 
 )
 echo.
-echo.´ò°üÍê³É¡£
-set msgvar=´ò°üÍê³É¡£
+echo.æ‰“åŒ…å®Œæˆã€‚
+set msgvar=æ‰“åŒ…å®Œæˆã€‚
 echo.
-echo.Èç¹ûÐèÒªÉ¾³ýÄ¿Â¼Çë°´ÈÎÒâ¼ü¼ÌÐø£¬·ñÔò¹Ø±Õ³ÌÐò£¡&&pause>nul
+echo.å¦‚æžœéœ€è¦åˆ é™¤ç›®å½•è¯·æŒ‰ä»»æ„é”®ç»§ç»­ï¼Œå¦åˆ™å…³é—­ç¨‹åºï¼&&pause>nul
 rd /s /q "%uppath%\%file%\"
-echo.Ä¿Â¼É¾³ýÍê³É¡£
+echo.ç›®å½•åˆ é™¤å®Œæˆã€‚
 ping 127.0.0.1 -n 2 >nul 
 exit
 
 :msg
-mshta vbscript:msgbox("%msgvar%",64,"ÌáÊ¾")(window.close) 
+mshta vbscript:msgbox("%msgvar%",64,"æç¤º")(window.close) 
 ping 127.0.0.1 -n 2 >nul 
 exit
 
