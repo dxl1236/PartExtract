@@ -1,14 +1,14 @@
 @echo off
 
 Rd "%WinDir%\system32\test_permissions" >NUL 2>NUL
-Md "%WinDir%\System32\test_permissions" 2>NUL||(Echo ÇëÊ¹ÓÃÓÒ¼ü¹ÜÀíÔ±Éí·ÝÔËÐÐ£¡&&Pause >nul&&Exit)
+Md "%WinDir%\System32\test_permissions" 2>NUL||(Echo è¯·ä½¿ç”¨å³é”®ç®¡ç†å‘˜èº«ä»½è¿è¡Œï¼&&Pause >nul&&Exit)
 Rd "%WinDir%\System32\test_permissions" 2>NUL
 cd /d "%~dp0"
-if NOT EXIST "%~dp0ugraf.exe" echo.Çë·Åµ½UGIIÄ¿Â¼ºóÔÙÔËÐÐ£¡&&pause>nul&&exit 
-if NOT EXIST "%~dp0PartExtract.bat" echo.¹¤¾ß²»ÍêÕû£¬Ã»ÕÒµ½PartExtract.bat£¡&&pause>nul&&exit 
-if NOT EXIST "%~dp07z.exe" echo.¹¤¾ß²»ÍêÕû£¬Ã»ÕÒµ½7z.exe£¡&&pause>nul&&exit 
-if NOT EXIST "%~dp0ugpc.exe" echo.¹¤¾ß²»ÍêÕû£¬Ã»ÕÒµ½ugpc.exe£¡&&pause>nul&&exit 
-reg delete "HKEY_CLASSES_ROOT\*\shell\PartExtract" /f
-reg add "HKEY_CLASSES_ROOT\*\shell\PartExtract"   /d "NX×°ÅäÌáÈ¡´ò°ü" /f
-reg add "HKEY_CLASSES_ROOT\*\shell\PartExtract\command"   /d "%~dp0PartExtract.bat  \"%%1\""  /f
+if NOT EXIST "%~dp0ugraf.exe" echo.è¯·æ”¾åˆ°UGIIç›®å½•åŽå†è¿è¡Œï¼&&pause>nul&&exit 
+if NOT EXIST "%~dp0PartExtract.bat" echo.å·¥å…·ä¸å®Œæ•´ï¼Œæ²¡æ‰¾åˆ°PartExtract.batï¼&&pause>nul&&exit 
+if NOT EXIST "%~dp07z.exe" echo.å·¥å…·ä¸å®Œæ•´ï¼Œæ²¡æ‰¾åˆ°7z.exeï¼&&pause>nul&&exit 
+if NOT EXIST "%~dp0ugpc.exe" echo.å·¥å…·ä¸å®Œæ•´ï¼Œæ²¡æ‰¾åˆ°ugpc.exeï¼&&pause>nul&&exit 
+reg delete "HKEY_CLASSES_ROOT\*\shell\PartExtract-bat" /f
+reg add "HKEY_CLASSES_ROOT\*\shell\PartExtract-bat"   /d "NXè£…é…æ ‘æå–æ‰“åŒ…(bat)" /f
+reg add "HKEY_CLASSES_ROOT\*\shell\PartExtract-bat\command"   /d "%~dp0PartExtract.bat  \"%%1\""  /f
 ping 127.0.0.1 -n 3 >nul 
